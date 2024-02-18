@@ -1,36 +1,36 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   View,
   Text,
   Button,
   StyleSheet,
   ScrollView,
-  TextInput,
-} from "react-native";
+  TextInput
+} from 'react-native'
 
-import Todo from "./Todo";
+import Todo from './Todo'
 
 const TodoList = () => {
-  const [title, setTitle] = useState("TodoList");
-  const [text, setText] = useState();
-  const [list, setList] = useState(["Hello World"]);
+  const [title, setTitle] = useState('TodoList')
+  const [text, setText] = useState()
+  const [list, setList] = useState(['Hello World'])
 
   // ADD ITEM METHOD
   const addItem = () => {
-    const updatedList = list;
-    updatedList.push(text);
-    setList(updatedList);
-    setText("");
-  };
+    const updatedList = list
+    updatedList.push(text)
+    setList(updatedList)
+    setText('')
+  }
 
   // DELETE ITEM METHOD
   const deleteItem = (index) => {
-    const updatedList = list.filter((todo) => todo !== index);
-    setList(updatedList);
-  };
+    const updatedList = list.filter((todo) => todo !== index)
+    setList(updatedList)
+  }
 
   return (
-    <View style={{ width: "80%", marginBottom: 60 }}>
+    <View style={{ width: '80%', marginBottom: 60 }}>
       <Text style={[styles.align, styles.font]}>{title}</Text>
       <ScrollView>
         {list.map((x, index) => (
@@ -43,26 +43,26 @@ const TodoList = () => {
           value={text}
           onChangeText={(text) => setText(text)}
         />
-        <Button title="Add item" onPress={addItem} />
+        <Button title='Add item' onPress={addItem} />
       </View>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   align: {
-    alignSelf: "center",
+    alignSelf: 'center'
   },
   font: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold'
   },
   input: {
     borderRadius: 5,
     borderWidth: 1,
     marginBottom: 8,
-    padding: 8,
-  },
-});
+    padding: 8
+  }
+})
 
-export default TodoList;
+export default TodoList
